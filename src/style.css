@@ -7,6 +7,12 @@ h1 {
   h2 {
     font-size: 24px;
   }
+
+  small {
+    font-size: 12px;
+    display: block;
+    text-align: center;
+  }
   
   h1,
   h2,
