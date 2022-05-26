@@ -18,9 +18,14 @@ h1 {
   h2,
   small,
   .temperature,
+  #city-input,
+  #search-button,
+  #location-button,
+  #temprature,
   #date-time {
     font-weight: 200;
   }
+  
   
   .appborder {
     border: 1px solid #000;
