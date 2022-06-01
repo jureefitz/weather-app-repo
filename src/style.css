@@ -1,77 +1,78 @@
 h1 {
-    margin-top: 15px;
-    margin-bottom: 0;
-    display: block;
-  }
-  
-  h2 {
-    font-size: 24px;
-  }
+  margin-top: 15px;
+  margin-bottom: 0;
+  display: block;
+}
 
-  small {
-    font-size: 12px;
-    display: block;
-    text-align: center;
-  }
-  
-  h1,
-  h2,
-  small,
-  .temperature,
-  #city-input,
-  #search-button,
-  #location-button,
-  #temprature,
-  #date-time {
-    font-weight: 200;
-  }
-  
-  
-  .appborder {
-    border: 1px solid #000;
-    padding: 40px;
-    margin: 15px auto;
-    margin-top: 50px;
-    border-radius: 15px;
-    max-width: 620px;
-    min-width: 524px;
-  }
-  
-  .temperature {
-    font-size: 58px;
-    padding: 5px 0 auto;
-  }
-  
-  .emoji-image {
-    font-size: 56px;
-  }
-  
-  .units {
-    position: relative;
-    top: -28px;
-  }
-  
-  .climate {
-    font-size: 20px;
-    font-weight: 300;
-  }
-  
-  .row {
-    padding-bottom: 10px;
-  }
-  
-  #date-time {
-    font-size: 20px;
-  }
-  
-  #location-button {
-    margin: 0px auto ;
-  }
+h2 {
+  font-size: 24px;
+}
 
-  #fahrenheit,
-  #celsius {
-    text-decoration: none;
-  }
-  
+small {
+  font-size: 12px;
+  display: block;
+  text-align: center;
+}
+
+h1,
+h2,
+small,
+.temperature,
+#city-input,
+#search-button,
+#location-button,
+#temprature,
+#date-time {
+  font-weight: 200;
+}
+
+.appborder {
+  border: 1px solid #000;
+  padding: 33px;
+  padding-bottom: 15px;
+  margin: 15px auto;
+  margin-top: 50px;
+  border-radius: 15px;
+  max-width: 620px;
+  min-width: 524px;
+}
+
+.temperature {
+  font-size: 50px;
+  padding: 5px 0 auto;
+}
+
+
+.units {
+  position: relative;
+  top: -21px;
+}
+
+.climate {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.row {
+  padding-bottom: 10px;
+}
+
+#date-time {
+  font-size: 20px;
+}
+
+#location-button {
+  margin: 0px auto ;
+}
+
+#fahrenheit,
+#celsius {
+  text-decoration: none;
+}
+
+img#emoji-icon {
+  padding-bottom: 25px;
+  max-width: 30%;
+}
 
   
