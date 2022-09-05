@@ -57,6 +57,24 @@ small,
   padding-bottom: 10px;
 }
 
+.weather-forecast {
+  margin-top: -10px;
+  text-align: center;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+.weather-forecast-temp-min {
+  opacity: 0.5;
+}
+
+.weather-forcast-temp {
+  font-size: 13px;
+}
+
 #date-time {
   font-size: 20px;
 }
