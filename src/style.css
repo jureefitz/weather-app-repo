@@ -29,6 +29,7 @@ small,
 .appborder {
   border: 1px solid #000;
   padding: 33px;
+  padding-right: 6px;
   padding-bottom: 15px;
   margin: 15px auto;
   margin-top: 50px;
