@@ -39,6 +39,31 @@ function formatDate(timestamp) {
   return `${days[dayIndex]} ${hours}:${minutes} ${currentAMPM} <br/> ${months[monthIndex]} ${dateIndex}`;
 }
 
+function displayForcast() {
+  let forecastElement = document.querySelector("#forecast"); 
+  
+  let days = ["Fri", "Sat", "Sun", "Mon", "Tue"];
+  let forecastHTML = `<div class = "row">`;
+  days.forEach(function(day){
+    forecastHTML = forecastHTML + 
+    
+    `<div class="col-2">
+      <div class="weather-forecast-date">${day}</div>
+      <img src="https://openweathermap.org/img/wn/50n@2x.png" alt=""
+      width="42"
+      >
+      <div class="weather-forecast-temp">
+        <span class="weather-forecast-temp-max">18º</span>
+        <span class="weather-forecast-temp-min">12º</span>
+      </div>
+    </div>
+  `;
+  });
+  forecastHTML =forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+ 
+}
+
 function displayTemp (response) {
   let dateElement = document.querySelector("#date-time");
   let iconElement = document.querySelector("#emoji-icon");
@@ -109,4 +134,4 @@ let currentLoaction = document.querySelector("#location-button")
 currentLoaction.addEventListener("click", getCurrentLocation)
 
 searchCity("Cleveland")
-    
+displayForcast();    
