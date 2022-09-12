@@ -44,7 +44,7 @@ function formatDay(timestamp){
   let day = date.getDay(); 
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
-
+  
 }
 
 function displayForecast(response) {
@@ -71,7 +71,6 @@ function displayForecast(response) {
     </div>
   `;
     }
-    
   });
   forecastHTML =forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -130,30 +129,12 @@ function submitCity(event) {
   searchCity(city);
 }
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 77;
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 19;
-}
-
-
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", submitCity);
 
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", convertToCelsius);
 
 let currentLoaction = document.querySelector("#location-button")
 currentLoaction.addEventListener("click", getCurrentLocation)
 
 searchCity("Cleveland")
+    
