@@ -39,7 +39,8 @@ function formatDate(timestamp) {
   return `${days[dayIndex]} ${hours}:${minutes} ${currentAMPM} <br/> ${months[monthIndex]} ${dateIndex}`;
 }
 
-function displayForcast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast"); 
   
   let days = ["Fri", "Sat", "Sun", "Mon", "Tue"];
@@ -64,6 +65,14 @@ function displayForcast() {
  
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "f0893f6d8d3fd5fce22940c2e9293be0"
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemp (response) {
   let dateElement = document.querySelector("#date-time");
   let iconElement = document.querySelector("#emoji-icon");
@@ -78,6 +87,8 @@ function displayTemp (response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute( "src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png` )
   iconElement.setAttribute( "alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function searchLocation(position) {
@@ -119,11 +130,11 @@ function convertToCelsius(event) {
   temperatureElement.innerHTML = 19;
 }
 
-// feature #2
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", submitCity);
 
-// feature #3
+
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
@@ -134,4 +145,4 @@ let currentLoaction = document.querySelector("#location-button")
 currentLoaction.addEventListener("click", getCurrentLocation)
 
 searchCity("Cleveland")
-displayForcast();    
+  
