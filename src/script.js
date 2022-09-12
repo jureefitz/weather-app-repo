@@ -39,26 +39,39 @@ function formatDate(timestamp) {
   return `${days[dayIndex]} ${hours}:${minutes} ${currentAMPM} <br/> ${months[monthIndex]} ${dateIndex}`;
 }
 
+function formatDay(timestamp){
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay(); 
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast"); 
   
-  let days = ["Fri", "Sat", "Sun", "Mon", "Tue"];
   let forecastHTML = `<div class = "row">`;
-  days.forEach(function(day){
-    forecastHTML = forecastHTML + 
+  forecast.forEach(function(forecastDay, index) {
+    if (index < 6 ) {
+    forecastHTML = 
+    forecastHTML + 
     
     `<div class="col-2">
-      <div class="weather-forecast-date">${day}</div>
-      <img src="https://openweathermap.org/img/wn/50n@2x.png" alt=""
+      <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+      
+      <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt=""
       width="42"
       >
       <div class="weather-forecast-temp">
-        <span class="weather-forecast-temp-max">18º</span>
-        <span class="weather-forecast-temp-min">12º</span>
+        <span class="weather-forecast-temp-max">${Math.round(forecastDay.temp.max)}º</span>
+        <span class="weather-forecast-temp-min">${Math.round(forecastDay.temp.min)}º</span>
       </div>
     </div>
   `;
+    }
+    
   });
   forecastHTML =forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -66,10 +79,9 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "f0893f6d8d3fd5fce22940c2e9293be0"
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
-  console.log(apiUrl);
+  
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -145,4 +157,3 @@ let currentLoaction = document.querySelector("#location-button")
 currentLoaction.addEventListener("click", getCurrentLocation)
 
 searchCity("Cleveland")
-  
